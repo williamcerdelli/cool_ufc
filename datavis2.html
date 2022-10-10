@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>William Cerdelli Data Visualisation 2</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+    <style>
+      p {
+          font-family: Arial;
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+      
+        .dataset-button {
+          background-color: #1d1d1d;
+          border: none;
+          font-family: Arial;
+          height: 36px;
+          width: 175px;
+          border-radius: 4px;
+          cursor: pointer;
+          margin-right: 8px;
+          margin-left: 10px;
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+      
+        .dataset-button:hover {
+          opacity: 0.8;
+          box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.15);
+        }
+      
+        .github-button {
+          background-color: #1d1d1d;
+          border: none;
+          font-family: Arial;
+          height: 36px;
+          width: 175px;
+          border-radius: 4px;
+          cursor: pointer;
+          margin-right: 8px;
+        }
+      
+        .github-button:hover {
+          opacity: 0.8;
+          box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.15);
+        }
+
+        .details-button {
+          background-color: #000000;
+          color: white;
+          border: none;
+          font-weight: bold;
+          font-family: Arial;
+          border-radius: 4px;
+          margin-left:10px;
+          margin-right:0px;
+        }
+      
+        .hyperlink{
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+          margin-top: 8px;
+        }
+      
+        .logo{
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width:300px;
+          height:100px;
+          margin-top: 20px;
+        }
+      
+        .logo:hover{
+          opacity: 0.8;
+        }
+      
+        .title{
+          margin-left: 5px;
+          font-size: 30px;
+          font-family: Arial;
+          font-weight: bolder;
+          text-align: center;
+          color: rgb(255, 255, 255);
+        }
+      
+        .intro-body {
+          font-size: 16px;
+          color: rgb(255, 255, 255);
+          margin-bottom: 20px;
+          margin-top: 0px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 550px;
+          text-align: center;
+        }
+
+        .chart-description {
+          font-size: 16px;
+          color: rgb(255, 255, 255);
+          margin-bottom: 20px;
+          margin-top: 5px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 550px;
+          text-align: center;
+        }
+
+        .map_title{
+          color: rgb(255, 255, 255);
+          font-size: 20px;
+          text-align: center;
+          margin-top: 70px;
+
+        }
+        
+        body {
+background-color: #000000;
+}
+    </style >
+  </head>
+
+  <body> 
+      <a class="hyperlink"
+          href="https://www.ufc.com" target="_blank">
+          <img class= "logo" alt="File:UFC Logo.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/92/UFC_Logo.svg/800px-UFC_Logo.svg.png" decoding="async" width="800" height="277" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/92/UFC_Logo.svg/1200px-UFC_Logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/92/UFC_Logo.svg/1600px-UFC_Logo.svg.png 2x" data-file-width="1250" data-file-height="433">      </a>
+      
+      <h1 class="title">
+        Data Analysis
+      </h1>
+      
+      <p class="intro-body ">
+        UFC is a mixed martial arts federation that was founded in the United States of America.
+        It is the <strong>largest MMA organisation</strong> in the world, with fighters coming from more than 60 different countries in it.
+      </p>
+
+      <h1 class="map_title">
+       Where are the UFC fighters from?
+      </h1>
+      
+      <div class="page">
+        <div class="pure-g", style="text-align:center">
+            <div class="pure-u-1-1">
+              <div id="map" class="vis-container"></div>
+            </div>
+        </div>
+
+        <p class="chart-description ">
+          Most of the fighters are from the United States and Brazil.
+        </p>
+
+        <p class="chart-description ">
+          The reasoning behind this is that the UFC is an American  company and
+          as of now the US has the most advanced techonolgies to improve the fighters performances.
+        </p>
+
+        <p class="chart-description ">
+          Brazil has the second biggest number of fighters as there is a strong fighting culture in
+          this country with fighters such as "Anderson Silva" that are as famous as the footballer "Pelè".
+        </p>
+
+        <p class="chart-description ">
+          Surprisingly enough a lot of less represented country are in the top 10 of many divsions and the current
+          UFC middleweight champion is from New Zealand.
+        </p>
+
+        <h1 class="map_title">
+          Red vs Blue corner, is red always the favourite to win?
+         </h1>
+
+         <p class="chart-description ">
+         There is a common theory among UFC fans that the fighter who is fighiting out of the red corner is the favourite and the most likely to win.
+         
+        </p>
+
+        <p class="chart-description ">
+          We will now investigate this thoery to see if it is a myth or reality. 
+         </p>
+         
+         <div class="page">
+           <div class="pure-g", style="text-align:center">
+               <div class="pure-u-1-1">
+                 <div id="blue_red" class="vis-container"></div>
+               </div>
+           </div>
+   
+           <p class="chart-description ">
+            It is possible to see from the donut chart that indeed the red corner wins around 60% of times.
+           </p>
+
+
+
+
+
+
+
+
+      <button class="details-button">
+          William Cerdelli 30892910
+      </button>
+
+      <button class="dataset-button">
+        <a class="hyperlink"
+          href="https://www.kaggle.com/code/rishpande/ufc-data-analysis-visualization-beginner" target="_blank">
+          Dataset Source
+        </a>
+      </button>
+      
+      <button class="github-button">
+        <a class="hyperlink"
+          href="https://github.com/williamcerdelli/datavis" target="_blank">
+          Github Repository
+        </a>
+      </button>
+
+      
+
+
+      <script type="text/javascript">
+        var specVis1 = "https://raw.githubusercontent.com/williamcerdelli/datavis/main/working%20map.json";
+        var specVis2 = "https://raw.githubusercontent.com/williamcerdelli/datavis/main/donutchartred_blue_draw.json";
+    
+        
+    
+        
+    
+        vegaEmbed('#map', specVis1, { "actions": false });
+
+        vegaEmbed('#blue_red', specVis2, { "actions": false }).then(function (result) {
+    }).catch(console.error);
+      </script>
+      
+  </body>
+
+</html>
