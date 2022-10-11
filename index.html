@@ -1,49 +1,107 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>William Cerdelli Data Visualisation 2</title>
+    <head>
+        <!-- Name shown on browser -->
+        <title>William Cerdelli Data Visualisation 2</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+        <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+        <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
 
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
-    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Import pure.css -->
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+          integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <!-- Styles -->
+        <style>
+            body {
+                background-color: #000000;
+            }
 
-    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+            .page{
+                width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+                align-items: center;
+            }
+            
+            .UFC-logo {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width:300px;
+                height:100px;
+                margin-top: 50px;
+            }
 
-    <style>
-      p {
-          font-family: Arial;
-          margin-top: 0;
-          margin-bottom: 0;
-        }
-      
-        .dataset-button {
-          background-color: #1d1d1d;
-          border: none;
-          font-family: Arial;
-          height: 36px;
-          width: 175px;
-          border-radius: 4px;
-          cursor: pointer;
-          margin-right: 8px;
-          margin-left: 10px;
-          margin-top: 20px;
-          margin-bottom: 20px;
-        }
-      
-        .dataset-button:hover {
-          opacity: 0.8;
-          box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.15);
-        }
-      
-        .github-button {
+            .main-title{
+                font-size: 55px;
+                font-family: Arial;
+                font-weight: bolder;
+                text-align: center;
+                color: rgb(255, 255, 255);
+
+            }
+            
+            .description-body{
+                font-size: 17px;
+                color: rgb(255, 255, 255);
+                font-family: Arial;
+                margin-bottom: 20px;
+                margin-top: 0px;
+                margin-left: auto;
+                margin-right: auto;
+                width: 550px;
+                text-align: center;
+            }
+
+            .chart-title{
+                color: rgb(255, 255, 255);
+                font-size: 45px;
+                text-align: center;
+                margin-top: 70px;
+                font-family: Arial;
+            }
+
+            .chart-description{
+                font-size: 17px;
+                color: rgb(255, 255, 255);
+                font-family: Arial;
+                margin-bottom: 20px;
+                margin-top: 15px;
+                margin-left: auto;
+                margin-right: auto;
+                width: 550px;
+                text-align: center;
+            }
+
+            .donut-dec-sub-ko{
+                width: 200px;
+                margin-left: 100px;
+            }
+
+            .dataset-button {
+                background-color: #1d1d1d;
+                border: none;
+                font-family: Arial;
+                height: 36px;
+                width: 175px;
+                border-radius: 4px;
+                cursor: pointer;
+                margin-right: 8px;
+                margin-left: 800px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            .dataset-button:hover {
+            opacity: 0.8;
+            box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.15);
+            }
+
+            .github-button {
           background-color: #1d1d1d;
           border: none;
           font-family: Arial;
@@ -69,296 +127,236 @@
           margin-left: 100px;
         }
 
-        .bottom-page{
+        .bottom-page {
           align-self: right;
-          display: inline;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
         }
       
-        .hyperlink{
+        .hyperlink {
           color: white;
           text-decoration: none;
           font-weight: bold;
           margin-top: 8px;
         }
-      
-        .logo{
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          width:300px;
-          height:100px;
-          margin-top: 20px;
-        }
-      
-        .logo:hover{
-          opacity: 0.8;
-        }
-      
-        .title{
-          font-size: 30px;
-          font-family: Arial;
-          font-weight: bolder;
-          text-align: center;
-          color: rgb(255, 255, 255);
-        }
-
-        .title:hover{
-          color:#d20a0a;
-        }
-      
-        .intro-body {
-          font-size: 16px;
-          color: rgb(255, 255, 255);
-          margin-bottom: 20px;
-          margin-top: 0px;
-          margin-left: auto;
-          margin-right: auto;
-          width: 550px;
-          text-align: center;
-        }
-
-        .chart-description {
-          font-size: 16px;
-          color: rgb(255, 255, 255);
-          margin-bottom: 20px;
-          margin-top: 5px;
-          margin-left: auto;
-          margin-right: auto;
-          width: 550px;
-          text-align: center;
-        }
-
-        .whole-page{
-          margin-left: auto;
-          margin-right: auto;
-          width: 800px;
-          align-content: center;
-        }
-
-        .map_title{
-          color: rgb(255, 255, 255);
-          font-size: 45px;
-          text-align: center;
-          margin-top: 70px;
-
-        }
-        
-        body {
-background-color: #000000;
-}
-    </style >
-  </head>
-
-  <body> 
-    <div class="whole-page">
-      <a class="hyperlink"
-      href="https://www.ufc.com" target="_blank">
-      <img class= "logo" alt="File:UFC Logo.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/92/UFC_Logo.svg/800px-UFC_Logo.svg.png" decoding="async" width="800" height="277" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/92/UFC_Logo.svg/1200px-UFC_Logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/92/UFC_Logo.svg/1600px-UFC_Logo.svg.png 2x" data-file-width="1250" data-file-height="433">      </a>
-  
-      <h1 class="title">
-        Data Analysis
-      </h1>
-      
-      <p class="intro-body ">
-        UFC is a mixed martial arts federation that was founded in the United States of America.
-        It is the <strong>largest MMA organisation</strong> in the world, with fighters coming from more than 60 different countries in it.
-      </p>
-
-
-      <h1 class="map_title">
-        Where are the UFC fighters from?
-       </h1>
-       
-      <div id="map" class="vis-container"></div>
-
- 
-      <p class="chart-description ">
-        Most of the fighters are from the United States and Brazil.
-      </p>
- 
-      <p class="chart-description ">
-        The reasoning behind this is that the UFC is an American  company and
-        as of now the US has the most advanced techonolgies to improve the fighters performances.
-        </p>
- 
-         <p class="chart-description ">
-           Brazil has the second biggest number of fighters as there is a strong fighting culture in
-           this country with fighters such as "Anderson Silva" that are as famous as the footballer "Pelè".
-         </p>
- 
-         <p class="chart-description ">
-           Surprisingly enough a lot of less represented country are in the top 10 of many divsions and the current
-           UFC middleweight champion is from New Zealand.
-         </p>
-    
-
-      <h1 class="map_title">
-        Red vs Blue corner, is red always the favourite to win?
-       </h1>
-
-       <p class="chart-description ">
-       There is a common theory among UFC fans that the fighter who is fighiting out of the red corner is the favourite and the most likely to win.
-      </p>
-
-      <p class="chart-description ">
-        We will now investigate this theory to see if it is a myth or reality. 
-       </p>
-       
-       <div class="page">
-         <div class="pure-g", style="text-align:center">
-             <div class="pure-u-1-1">
-               <div id="blue_red" class="vis-container"></div>
-             </div>
-         </div>
- 
-         <p class="chart-description ">
-          It is possible to see from the donut chart that indeed the red corner wins around 60% of times.
-         </p>
 
 
 
-         <h1 class="map_title">
-          Winning methods
-         </h1>
-         <p class="chart-description ">
-          There are three possible ways to win a fight.....
-        </p>
-        <p class="chart-description ">
-          We will now investigate the proportion of times....
-        </p>
-         <div class="page">
-           <div class="pure-g", style="text-align:center">
-               <div class="pure-u-1-1">
-                 <div id="dec_sub_ko" class="vis-container"></div>
-               </div>
-           </div>
-           <p class="chart-description ">
-            It is possible to see from the donut chart that....
-           </p>
-           <div class="page">
-             <div class="pure-g", style="text-align:center">
-                 <div class="pure-u-1-1">
-                   <div id="barchartwins" class="vis-container"></div>
-                 </div>
-             </div>
-             <p class="chart-description ">
-              It is possible to see from the donut chart that....
-             </p>
+        </style>
+    </head>
 
+    <body>
+        <div class="page">
+            <a class="hyperlink"
+            href="https://www.ufc.com" target="_blank">
+            <img class= "UFC-logo" alt="File:UFC Logo.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/92/UFC_Logo.svg/800px-UFC_Logo.svg.png" decoding="async" width="800" height="277" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/92/UFC_Logo.svg/1200px-UFC_Logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/92/UFC_Logo.svg/1600px-UFC_Logo.svg.png 2x" data-file-width="1250" data-file-height="433">      
+            </a>
 
-             <h1 class="map_title">
-              Top 10 fighters with most wins between 2014-2017
-             </h1>
-    
-             <p class="chart-description ">
-              There are three possible ways to win a fight.....
+            <h1 class="main-title">
+                Data Visualisation
+            </h1>
+
+            <p class="description-body">
+                UFC is a mixed martial arts federation that was founded in the United States of America.
+                It is the largest MMA organisation in the world, with fighters coming from more than 60 different countries in it.
             </p>
-    
-            <p class="chart-description ">
-              We will now investigate the proportion of times....
-             </p>
-             
-             <div class="page">
-               <div class="pure-g", style="text-align:center">
-                   <div class="pure-u-1-1">
-                     <div id="top10fighters" class="vis-container"></div>
-                   </div>
-               </div>
-       
-               <p class="chart-description ">
-                It is possible to see from the donut chart that....
-               </p>
 
-
-               <h1 class="map_title">
-                Most epic battles between 2014-2017
-               </h1>
+            <div class="Where-are-the-UFC-fighters-from?">
+                <h1 class="chart-title">
+                    Where are the UFC fighters from?
+                   </h1>
       
-               <p class="chart-description ">
-                There are three possible ways to win a fight.....
-              </p>
+                  <div class="pure-g">
+                      <div class="pure-u-1-1">
+                          <div id="map" class="vis-container"></div>
+                      </div>
+                  </div>
       
-              <p class="chart-description ">
-                We will now investigate the proportion of times....
-               </p>
+                  <p class="description-body">
+                      Most of the fighters are from the United States and Brazil.
+                  </p>
                
-               <div class="page">
-                 <div class="pure-g", style="text-align:center">
-                     <div class="pure-u-1-1">
-                       <div id="epic" class="vis-container"></div>
-                     </div>
-                 </div>
-         
-                 <p class="chart-description ">
-                  It is possible to see from the donut chart that....
-                 </p>
+                  <p class="description-body">
+                      The reasoning behind this is that the UFC is an American  company and
+                      as of now the US has the most advanced techonolgies to improve the fighters performances.
+                  </p>
+               
+                  <p class="description-body">
+                         Brazil has the second biggest number of fighters as there is a strong fighting culture in
+                         this country with fighters such as "Anderson Silva" that are as famous as the footballer "Pelè".
+                   </p>
+               
+                  <p class="description-body">
+                         Surprisingly enough a lot of less represented country are in the top 10 of many divsions and the current
+                         UFC middleweight champion is from New Zealand.
+                  </p>
+            </div>
 
-    </div>
-     
+            <div class="Red-Blue">
+                <h1 class="chart-title">
+                    Red corner vs Blue corner, who is the favourite to win?
+                </h1>
+
+                <p class="description-body">
+                    There is a common theory among UFC fans that the fighter who is fighiting out of the red corner is the favourite and the most likely to win.
+                </p>
+             
+                <p class="description-body">
+                     We will now investigate this theory to see if it is a myth or reality. 
+                </p>
+
+                <div class="pure-g", style="text-align:center">
+                    <div class="pure-u-1-1">
+                      <div id="blue_red" class="vis-container"></div>
+                    </div>
+                </div>
+
+                <p class="chart-description">
+                     It is possible to see from the donut chart that indeed the fighter in the red corner wins around 60% of times.
+                </p>
+
+
+
+
+
+            </div>
+
+            <div class="Win-by">
+                <h1 class="chart-title">
+                    Win by...
+                </h1>
+                
+                <p class="description-body">
+                    There are three possible ways to win a fight: decision, submission and KO or TKO.
+                </p>
+
+                <p class="description-body">
+                    We will now investigate the proportion  and number of times each of these possible results happened between 2014-2017
+                </p>
+
+                <div class="pure-g", style="text-align:center">
+                    <div class="pure-u-1-1">
+                      <div id="barchartwins" class="vis-container"></div>
+                    </div>
+                </div>
+
+                <div class="donut-dec-sub-ko">
+                    <div class="pure-g", style="text-align:center">
+                        <div class="pure-u-1-2">
+                          <div id="dec_sub_ko" class="vis-container">
+                          </div>
+                        </div>
+                   </div>
+                </div>
+
+                <p>
+                    space
+                </p>
+
+                <p class="chart-description ">
+                    It is possible to see from the donut chart that....
+                </p>
+
+                
+
+
+               
+
+
+            </div>
+
+            <div class="Top-10-fighters">
+                <h1 class="chart-title">
+                    Who are the fighters with most wins and how do they win?
+                   </h1>
       
-
-
-
-
-
-    <div class="bottom-page">
-      <button class="details-button">
-        William Cerdelli 30892910
-    </button>
-
-    <button class="dataset-button">
-      <a class="hyperlink"
-        href="https://www.kaggle.com/code/rishpande/ufc-data-analysis-visualization-beginner" target="_blank">
-        Dataset Source
-      </a>
-    </button>
-    
-    <button class="github-button">
-      <a class="hyperlink"
-        href="https://github.com/williamcerdelli/datavis" target="_blank">
-        Github Repository
-      </a>
-    </button>
-    </div>
+                   <div class="pure-g", style="text-align:center">
+                        <div class="pure-u-1-1">
+                            <div id="top10fighters" class="vis-container"></div>
+                        </div>
+                    </div>
       
+                  <p class="chart-description">
+                      Most of the fighters are from the United States and Brazil.
+                  </p>
+            </div>
+
+            <div class="epic">
+                <h1 class="chart-title">
+                    What is an epic and memorable fight?
+                   </h1>
       
+                   <div class="pure-g", style="text-align:center">
+                        <div class="pure-u-1-1">
+                             <div id="epic" class="vis-container"></div>
+                         </div>
+                    </div>
+      
+                  <p class="chart-description">
+                      Most of the fighters are from the United States and Brazil.
+                  </p>
+            </div>
+        </div>
+        
+        <div class="bottom-page">
+            <button class="details-button">
+              William Cerdelli 30892910
+          </button>
+      
+          <button class="dataset-button">
+            <a class="hyperlink"
+              href="https://www.kaggle.com/code/rishpande/ufc-data-analysis-visualization-beginner" target="_blank">
+              Dataset Source
+            </a>
+          </button>
+          
+          <button class="github-button">
+            <a class="hyperlink"
+              href="https://github.com/williamcerdelli/datavis" target="_blank">
+              Github Repository
+            </a>
+          </button>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
       <script type="text/javascript">
-        var specVis1 = "https://raw.githubusercontent.com/williamcerdelli/datavis/main/working%20map.json";
-        var specVis2 = "https://raw.githubusercontent.com/williamcerdelli/datavis/main/donutchartred_blue_draw.json";
-        var specVis3 = "https://raw.githubusercontent.com/williamcerdelli/datavis/main/Donut%20chart%20of%20wins%20by.json";
-        var specVis4 = "https://raw.githubusercontent.com/williamcerdelli/datavis/main/barchartwins.json";
-        var specVis5 = "https://raw.githubusercontent.com/williamcerdelli/datavis/main/top10fighters_stacked.json";
-        var specVis6 = "https://raw.githubusercontent.com/williamcerdelli/datavis/main/epicscatterplot.json";
-    
-        
-    
-        
-    
-        vegaEmbed('#map', specVis1, { "actions": false });
+            var specVis1 = "https://raw.githubusercontent.com/williamcerdelli/datavis/main/working%20map.json";
+            var specVis2 = "https://raw.githubusercontent.com/williamcerdelli/datavis/main/donutchartred_blue_draw.json";
+            var specVis3 = "https://raw.githubusercontent.com/williamcerdelli/datavis/main/Donut%20chart%20of%20wins%20by.json";
+            var specVis4 = "https://raw.githubusercontent.com/williamcerdelli/datavis/main/barchartwins.json";
+            var specVis5 = "https://raw.githubusercontent.com/williamcerdelli/datavis/main/top10fighters_stacked.json";
+            var specVis6 = "https://raw.githubusercontent.com/williamcerdelli/datavis/main/epicscatterplot.json";
+            
+            vegaEmbed('#map', specVis1, { "actions": false }).then(function (result) {
+            }).catch(console.error);
 
-        vegaEmbed('#blue_red', specVis2, { "actions": false }).then(function (result) {
-        }).catch(console.error);
+            vegaEmbed('#blue_red', specVis2, { "actions": false }).then(function (result) {
+            }).catch(console.error);
 
-        vegaEmbed('#dec_sub_ko', specVis3, { "actions": false }).then(function (result) {
-          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
+            vegaEmbed('#dec_sub_ko', specVis3, { "actions": false }).then(function (result) {
+            }).catch(console.error);
 
-        vegaEmbed('#barchartwins', specVis4, { "actions": false }).then(function (result) {
-          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
+            vegaEmbed('#barchartwins', specVis4, { "actions": false }).then(function (result) {
+            }).catch(console.error);
 
-        vegaEmbed('#top10fighters', specVis5, { "actions": false }).then(function (result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
+            vegaEmbed('#top10fighters', specVis5, { "actions": false }).then(function (result) {
+            }).catch(console.error);
 
-        vegaEmbed('#epic', specVis6, { "actions": false }).then(function (result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    }).catch(console.error);
+            vegaEmbed('#epic', specVis6, { "actions": false }).then(function (result) {
+            }).catch(console.error);
 
       </script>
-      
-  </body>
-
+    </body>
 </html>
