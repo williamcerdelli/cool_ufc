@@ -124,9 +124,10 @@
           text-align: center;
         }
 
-        .chart-container{
+        .whole-page{
           margin-left: auto;
           margin-right: auto;
+          width: 1000px;
           align-content: center;
         }
 
@@ -145,10 +146,11 @@ background-color: #000000;
   </head>
 
   <body> 
+    <div class="whole-page">
       <a class="hyperlink"
-          href="https://www.ufc.com" target="_blank">
-          <img class= "logo" alt="File:UFC Logo.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/92/UFC_Logo.svg/800px-UFC_Logo.svg.png" decoding="async" width="800" height="277" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/92/UFC_Logo.svg/1200px-UFC_Logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/92/UFC_Logo.svg/1600px-UFC_Logo.svg.png 2x" data-file-width="1250" data-file-height="433">      </a>
-      
+      href="https://www.ufc.com" target="_blank">
+      <img class= "logo" alt="File:UFC Logo.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/92/UFC_Logo.svg/800px-UFC_Logo.svg.png" decoding="async" width="800" height="277" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/92/UFC_Logo.svg/1200px-UFC_Logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/92/UFC_Logo.svg/1600px-UFC_Logo.svg.png 2x" data-file-width="1250" data-file-height="433">      </a>
+  
       <h1 class="title">
         Data Analysis
       </h1>
@@ -157,96 +159,119 @@ background-color: #000000;
         UFC is a mixed martial arts federation that was founded in the United States of America.
         It is the <strong>largest MMA organisation</strong> in the world, with fighters coming from more than 60 different countries in it.
       </p>
-      
-      <div class="chart-container">
-        <h1 class="map_title">
-          Where are the UFC fighters from?
-         </h1>
-         
-         <div class="page">
-           <div class="pure-g", style="text-align:center">
-               <div class="pure-u-1-1">
-                 <div id="map" class="vis-container"></div>
-               </div>
-           </div>
-   
-           <p class="chart-description ">
-             Most of the fighters are from the United States and Brazil.
-           </p>
-   
-           <p class="chart-description ">
-             The reasoning behind this is that the UFC is an American  company and
-             as of now the US has the most advanced techonolgies to improve the fighters performances.
-           </p>
-   
-           <p class="chart-description ">
-             Brazil has the second biggest number of fighters as there is a strong fighting culture in
-             this country with fighters such as "Anderson Silva" that are as famous as the footballer "Pelè".
-           </p>
-   
-           <p class="chart-description ">
-             Surprisingly enough a lot of less represented country are in the top 10 of many divsions and the current
-             UFC middleweight champion is from New Zealand.
-           </p>
-      </div>
-      
 
-        <h1 class="map_title">
-          Red vs Blue corner, is red always the favourite to win?
-         </h1>
 
+      <h1 class="map_title">
+        Where are the UFC fighters from?
+       </h1>
+       
+       <div class="page">
+         <div class="pure-g", style="text-align:center">
+             <div class="pure-u-1-1">
+               <div id="map" class="vis-container"></div>
+             </div>
+         </div>
+ 
          <p class="chart-description ">
-         There is a common theory among UFC fans that the fighter who is fighiting out of the red corner is the favourite and the most likely to win.
-        </p>
-
-        <p class="chart-description ">
-          We will now investigate this theory to see if it is a myth or reality. 
+           Most of the fighters are from the United States and Brazil.
          </p>
-         
+ 
+         <p class="chart-description ">
+           The reasoning behind this is that the UFC is an American  company and
+           as of now the US has the most advanced techonolgies to improve the fighters performances.
+         </p>
+ 
+         <p class="chart-description ">
+           Brazil has the second biggest number of fighters as there is a strong fighting culture in
+           this country with fighters such as "Anderson Silva" that are as famous as the footballer "Pelè".
+         </p>
+ 
+         <p class="chart-description ">
+           Surprisingly enough a lot of less represented country are in the top 10 of many divsions and the current
+           UFC middleweight champion is from New Zealand.
+         </p>
+    
+
+      <h1 class="map_title">
+        Red vs Blue corner, is red always the favourite to win?
+       </h1>
+
+       <p class="chart-description ">
+       There is a common theory among UFC fans that the fighter who is fighiting out of the red corner is the favourite and the most likely to win.
+      </p>
+
+      <p class="chart-description ">
+        We will now investigate this theory to see if it is a myth or reality. 
+       </p>
+       
+       <div class="page">
+         <div class="pure-g", style="text-align:center">
+             <div class="pure-u-1-1">
+               <div id="blue_red" class="vis-container"></div>
+             </div>
+         </div>
+ 
+         <p class="chart-description ">
+          It is possible to see from the donut chart that indeed the red corner wins around 60% of times.
+         </p>
+
+
+
+         <h1 class="map_title">
+          Winning methods
+         </h1>
+         <p class="chart-description ">
+          There are three possible ways to win a fight.....
+        </p>
+        <p class="chart-description ">
+          We will now investigate the proportion of times....
+        </p>
          <div class="page">
            <div class="pure-g", style="text-align:center">
                <div class="pure-u-1-1">
-                 <div id="blue_red" class="vis-container"></div>
+                 <div id="dec_sub_ko" class="vis-container"></div>
                </div>
            </div>
-   
            <p class="chart-description ">
-            It is possible to see from the donut chart that indeed the red corner wins around 60% of times.
+            It is possible to see from the donut chart that....
            </p>
-
-
-
-           <h1 class="map_title">
-            Winning methods
-           </h1>
-           <p class="chart-description ">
-            There are three possible ways to win a fight.....
-          </p>
-          <p class="chart-description ">
-            We will now investigate the proportion of times....
-          </p>
            <div class="page">
              <div class="pure-g", style="text-align:center">
                  <div class="pure-u-1-1">
-                   <div id="dec_sub_ko" class="vis-container"></div>
+                   <div id="barchartwins" class="vis-container"></div>
                  </div>
              </div>
              <p class="chart-description ">
               It is possible to see from the donut chart that....
              </p>
+
+
+             <h1 class="map_title">
+              Top 10 fighters with most wins between 2014-2017
+             </h1>
+    
+             <p class="chart-description ">
+              There are three possible ways to win a fight.....
+            </p>
+    
+            <p class="chart-description ">
+              We will now investigate the proportion of times....
+             </p>
+             
              <div class="page">
                <div class="pure-g", style="text-align:center">
                    <div class="pure-u-1-1">
-                     <div id="barchartwins" class="vis-container"></div>
+                     <div id="top10fighters" class="vis-container"></div>
                    </div>
                </div>
+       
                <p class="chart-description ">
                 It is possible to see from the donut chart that....
                </p>
-  
+
 
                <h1 class="map_title">
-                Top 10 fighters with most wins between 2014-2017
+                Most epic battles between 2014-2017
                </h1>
       
                <p class="chart-description ">
@@ -260,7 +285,7 @@ background-color: #000000;
                <div class="page">
                  <div class="pure-g", style="text-align:center">
                      <div class="pure-u-1-1">
-                       <div id="top10fighters" class="vis-container"></div>
+                       <div id="epic" class="vis-container"></div>
                      </div>
                  </div>
          
@@ -269,28 +294,10 @@ background-color: #000000;
                  </p>
 
 
-                 <h1 class="map_title">
-                  Most epic battles between 2014-2017
-                 </h1>
-        
-                 <p class="chart-description ">
-                  There are three possible ways to win a fight.....
-                </p>
-        
-                <p class="chart-description ">
-                  We will now investigate the proportion of times....
-                 </p>
-                 
-                 <div class="page">
-                   <div class="pure-g", style="text-align:center">
-                       <div class="pure-u-1-1">
-                         <div id="epic" class="vis-container"></div>
-                       </div>
-                   </div>
-           
-                   <p class="chart-description ">
-                    It is possible to see from the donut chart that....
-                   </p>
+
+    </div>
+     
+      
 
 
 
