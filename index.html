@@ -91,9 +91,9 @@
                 border-radius: 4px;
                 cursor: pointer;
                 margin-right: 8px;
-                margin-left: 800px;
                 margin-top: 20px;
                 margin-bottom: 20px;
+                margin-left: 0px;
             }
 
             .dataset-button:hover {
@@ -124,14 +124,13 @@
           font-weight: bold;
           font-family: Arial;
           border-radius: 4px;
-          margin-left: 100px;
+          margin-left: 20px;
+          display: inline-block;
         }
 
         .bottom-page {
-          align-self: right;
           display: block;
-          margin-left: auto;
-          margin-right: auto;
+          margin: auto;
         }
       
         .hyperlink {
@@ -139,6 +138,12 @@
           text-decoration: none;
           font-weight: bold;
           margin-top: 8px;
+        }
+
+        .external-links{
+            display: inline;
+            margin-left: auto; 
+            margin-right: 0;
         }
 
 
@@ -255,7 +260,13 @@
                 </p>
 
                 <p class="chart-description ">
-                    It is possible to see from the donut chart that....
+                    It is possible to see from the charts that most fights go to distance,
+                     the second most common result is KO/TKO followed by submission and lastly only few fights end in a draw.
+                </p>
+
+                <p class="chart-description ">
+                     It is hard to finish a fight at the UFC level since most fighters are highly skilled, KOs can happen
+                      with lucy strikes and submissions are even harder to achieve since it takes much longer to get one. 
                 </p>
 
                 
@@ -278,7 +289,7 @@
                     </div>
       
                   <p class="chart-description">
-                      Most of the fighters are from the United States and Brazil.
+                      Donald Cerrone is the fighter who go the most wins between 2014-2017, with 3 decisons, 5 KO/TKO and 2 subissions.
                   </p>
             </div>
 
@@ -286,16 +297,16 @@
                 <h1 class="chart-title">
                     What is an epic and memorable fight?
                    </h1>
+
+                <p class="chart-description">
+                    Here we will analyse the most exciting matches by confronting the significant strikes landed by each fighter, the recipe for a great fight is when both fighters land a large amount of significant strikes.
+                </p>
       
-                   <div class="pure-g", style="text-align:center">
-                        <div class="pure-u-1-1">
-                             <div id="epic" class="vis-container"></div>
-                         </div>
+                <div class="pure-g", style="text-align:center">
+                    <div class="pure-u-1-1">
+                        <div id="epic" class="vis-container"></div>
                     </div>
-      
-                  <p class="chart-description">
-                      Most of the fighters are from the United States and Brazil.
-                  </p>
+                </div>
             </div>
         </div>
         
@@ -303,20 +314,22 @@
             <button class="details-button">
               William Cerdelli 30892910
           </button>
-      
-          <button class="dataset-button">
-            <a class="hyperlink"
-              href="https://www.kaggle.com/code/rishpande/ufc-data-analysis-visualization-beginner" target="_blank">
-              Dataset Source
-            </a>
-          </button>
           
-          <button class="github-button">
-            <a class="hyperlink"
-              href="https://github.com/williamcerdelli/datavis" target="_blank">
-              Github Repository
-            </a>
-          </button>
+            <div class="external-links">
+                <button class="dataset-button">
+                    <a class="hyperlink"
+                      href="https://www.kaggle.com/code/rishpande/ufc-data-analysis-visualization-beginner" target="_blank">
+                      Dataset Source
+                    </a>
+                  </button>
+                  
+                  <button class="github-button">
+                    <a class="hyperlink"
+                      href="https://github.com/williamcerdelli/datavis" target="_blank">
+                      Github Repository
+                    </a>
+                  </button>
+            </div>
           </div>
 
 
